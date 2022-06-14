@@ -1,0 +1,36 @@
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+ 
+public class Polinomio {
+    
+  public static void main(String[] args) {
+    	int p, aux=0;
+    	double a,b,c,d,x,x1,x2,n,exp=2,m, exp1;
+    	String cadena;
+    	// TODO, add your application code
+    	Scanner entrada = new Scanner(System.in);
+  
+    	 JOptionPane.showMessageDialog(null,"Vamos a resolver Polinomio de segundo grado!");
+    	a = Integer.parseInt(JOptionPane.showInputDialog("digite el valor de a: "));
+       	b = Integer.parseInt(JOptionPane.showInputDialog("digite el valor de b: "));
+        c = Integer.parseInt(JOptionPane.showInputDialog("digite el valor de c: "));
+        exp1 = Math.pow(b,exp);
+       	m = 4*a*c;
+       	d= exp1-(m);
+        n = Math.sqrt(d);
+		x1=2*a;
+    		
+    	if(d<0){
+    		JOptionPane.showMessageDialog(null,"solucion de raices complejas!!! el valor de la raiz es negativo");
+    		
+    	}
+    		if(d>0){
+    		x=(-b+n)/x1;
+    		x2=(-b-n)/x1;
+    	JOptionPane.showMessageDialog(null,"el valor de x1: "+x+"    ; y x2: "+x2);
+    		}
+    		if(a==0&&b==0){
+    		JOptionPane.showMessageDialog(null,"raices degeneradas");
+    		}
+    }
+}

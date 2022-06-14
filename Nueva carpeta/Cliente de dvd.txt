@@ -1,0 +1,69 @@
+/*REALICE UNA CLASE DONDE SE PUEDA CALCULAR EL MONTO A COBRARLE A UN CLIENTE DE UNA TIENDA DE ALQUILER DE DVD 
+ *CONSIDERANDO QUE EL PRECIO DE CADA PELICULA ES DE BS. 3000 POR TRES (3) DIAS Y POR CADA DIA DE RETRASO SE COBRARA 
+ *EL MONTO DE BS. 500 SOBRE CADA DVD
+ */
+ import javax.swing.JOptionPane;
+ import java.util.Scanner;
+"CLASE PRUEBA CLIENTE" 
+public class Cliente {
+    
+    public static void main(String[] args) {
+    
+    	int  dvd, dia, pagar;
+    	Scanner entrada = new Scanner(System.in);
+    	Ccliente cli = new Ccliente();
+    /*	dvd = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de dvd alquilado: "));
+    	dia = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de dias de alquilados los dvd :"));
+    */	
+    
+    		
+    	System.out.println("ingrese la cantidad de dvd alquilado: ");
+    	dvd = entrada.nextInt();
+    	if(dvd>0){
+    	
+    		System.out.println("ingrese la cantidad de dias: ");
+    		dia = entrada.nextInt();
+    			if(dia<=3){
+    						pagar = cli.Pagar(dvd);
+    						System.out.println("tienes que pagar: "+pagar);		
+    						}
+    			if(dia>3){
+    						pagar = cli.PagarRestraso(dvd,dia);
+    						System.out.println("tienes que pagar: "+pagar+" y tienes "+cli.DiaRetraso(dia)+" Dia de retraso");
+    						}
+    		
+    		}else{
+    			System.out.println("no tienes dvd alquilados");
+    		}
+    	
+    }
+}
+
+"CLASE CCLIENTE"
+public class Ccliente {
+	private int dia, dvd, precio = 3000, diar = 500, pagar,comp;
+	
+    public Ccliente() {
+    	dia = 0;
+    	dvd = 0;
+    }
+    public Ccliente(int dvd,int dia){
+    	this.dia=dia;
+    	this.dvd=dvd;
+    }
+    
+    public int Pagar(int dvd){
+    	pagar = dvd*precio;
+    	return pagar;
+    }
+    public int PagarRestraso(int dvd, int dia){
+    	comp = dia-3;
+    	pagar = precio*dvd+(diar*comp*dvd);
+    	return pagar;
+    }
+    public int DiaRetraso(int dia){
+    	comp = dia-3;
+    	return comp;
+    }
+    
+}
